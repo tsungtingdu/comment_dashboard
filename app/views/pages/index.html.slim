@@ -11,7 +11,8 @@ table class="table"
       th scope="col" Lesson Id 
       th scope="col" Unit Id
       th scope="col" Unit Name
-      th scope="col" Type      
+      th scope="col" Type
+      th scope="col" User      
       th scope="col" Content  
   tbody
     - @comments.each do |comment|
@@ -28,6 +29,8 @@ table class="table"
           = comment.unit_name
         td scope="row"
           = comment.thread_type
+        td scope="row"
+          = comment.user_name  
         td scope="row"
           = comment.content
 br
