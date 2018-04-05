@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
 
   def index
-    @comments = Comment.all.order(lh_comment_id: :desc)
+    @comments = Comment.all.order(lh_comment_id: :desc).page(params[:page]).per(25)
   end
 
   def read
-    csv_text = File.read('comment_20180405195735.csv')
+    csv_text = File.read('comment_20180405215846.csv')
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
       if Comment.where(:lh_comment_id => row[0]).any?
