@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get '/read', to: 'pages#read'
+  get '/by_section', to: 'pages#by_section'
 end

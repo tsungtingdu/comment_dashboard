@@ -4,6 +4,22 @@ class PagesController < ApplicationController
     @comments = Comment.all.order(lh_comment_id: :desc).page(params[:page]).per(25)
   end
 
+  def by_section
+    @comments = Comment.all
+    get_report = Hash.new
+    
+    @comments.each do |comment|
+      section_id = comment.section_id  
+      if !get_report[section_id]
+        get_report[section_id] = 1
+      else  
+        get_report[section_id] = get_report[section_id] + 1
+      end 
+    end
+    @sort_by_section = get_report.sort_by{|k,v| k}
+    @sort_by_comment = get_report.sort_by{|k,v| v}
+  end
+
   def read
     csv_text = File.read('comment_20180405215846.csv')
     csv = CSV.parse(csv_text, :headers => true)

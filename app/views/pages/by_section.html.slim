@@ -1,0 +1,32 @@
+h1 Comments Dashboard
+
+button type="button" class="btn btn-outline-primary"
+  = link_to 'Get CSV', read_path
+
+
+br
+div class="container"
+  div class="row"
+    ul class="nav nav-tabs"
+      li role="presentation" 
+        = link_to 'Latest comments', root_path
+      li role="presentation" class="active"
+        = link_to 'By sections', by_section_path
+      li role="presentation"
+        = link_to 'By users'
+br
+
+div class="container"
+  div class="row"
+    table class="table"
+      thead
+        tr
+          th scope="col" Section Id
+          th scope="col" Total Comments
+      tbody
+        - @sort_by_section.each do |a|
+          tr
+            td scope="row"
+              = a[0]
+            td scope="row"
+              = a[1]              
