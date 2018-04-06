@@ -1,37 +1,54 @@
-h1 Hello World
+h1 Comments Dashboard
 
-= link_to 'Get CSV', read_path
+button type="button" class="btn btn-outline-primary"
+  = link_to 'Get CSV', read_path
 
 
-table class="table"
-  thead
-    tr
-      th scope="col" Comment Id
-      th scope="col" Section Id
-      th scope="col" Lesson Id 
-      th scope="col" Unit Id
-      th scope="col" Unit Name
-      th scope="col" Type
-      th scope="col" User      
-      th scope="col" Content  
-  tbody
-    - @comments.each do |comment|
-      tr
-        td scope="row"
-          = comment.lh_comment_id 
-        td scope="row"
-          = comment.section_id
-        td scope="row"
-          = comment.lesson_id
-        td scope="row"
-          = comment.unit_id
-        td scope="row"
-          = comment.unit_name
-        td scope="row"
-          = comment.thread_type
-        td scope="row"
-          = comment.user_name  
-        td scope="row"
-          = comment.content
 br
-= paginate @comments 
+div class="container"
+  div class="row"
+    ul class="nav nav-tabs"
+      li role="presentation" class="active"
+        = link_to 'Latest comments', root_path
+      li role="presentation"
+        = link_to 'By sections'
+      li role="presentation"
+        = link_to 'By users'   
+
+br
+
+div class="container"
+  div class="row"
+    br
+    = paginate @comments 
+    table class="table"
+      thead
+        tr
+          th scope="col" Comment Id
+          th scope="col" Section Id
+          th scope="col" Lesson Id 
+          th scope="col" Unit Id
+          th scope="col" Unit Name
+          th scope="col" Type
+          th scope="col" User      
+          th scope="col" Content  
+      tbody
+        - @comments.each do |comment|
+          tr
+            td scope="row"
+              = comment.lh_comment_id 
+            td scope="row"
+              = comment.section_id
+            td scope="row"
+              = comment.lesson_id
+            td scope="row"
+              = comment.unit_id
+            td scope="row"
+              = comment.unit_name
+            td scope="row"
+              = comment.thread_type
+            td scope="row"
+              = comment.user_name  
+            td scope="row"
+              = comment.content
+    
