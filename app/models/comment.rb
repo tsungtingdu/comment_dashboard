@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :commnet_status
+  belongs_to :comment_status
 end
