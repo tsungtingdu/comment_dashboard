@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414023751) do
+ActiveRecord::Schema.define(version: 20180414025223) do
 
   create_table "comment_statuses", force: :cascade do |t|
     t.string "comment_status"
@@ -19,19 +19,19 @@ ActiveRecord::Schema.define(version: 20180414023751) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "lh_comment_id"
-    t.bigint "user_id"
+    t.integer "lh_comment_id", limit: 8
+    t.integer "user_id", limit: 8
     t.string "user_name"
-    t.bigint "section_id"
+    t.integer "section_id", limit: 8
     t.string "section_name"
-    t.bigint "lesson_id"
+    t.integer "lesson_id", limit: 8
     t.string "lesson_name"
-    t.bigint "unit_id"
+    t.integer "unit_id", limit: 8
     t.string "unit_name"
-    t.bigint "assignment_id"
+    t.integer "assignment_id", limit: 8
     t.string "title"
     t.text "content"
-    t.bigint "replied_comment_id"
+    t.integer "replied_comment_id", limit: 8
     t.text "replied_comment_title"
     t.text "replied_comment_content"
     t.integer "upvote"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180414023751) do
     t.time "time_comment"
     t.string "thread_type"
     t.string "comment_catagory"
-    t.string "comment_status"
     t.string "comment_responsibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
