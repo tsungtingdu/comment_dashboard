@@ -1,0 +1,2 @@
+class CommentStatus < ApplicationRecord
+end
