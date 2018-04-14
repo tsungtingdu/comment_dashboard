@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get '/read', to: 'pages#read'
   get '/by_section', to: 'pages#by_section'
+  get '/show_comment/:id', to: 'pages#show_comment', as: "show_comment"
 end

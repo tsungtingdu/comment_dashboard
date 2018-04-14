@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     @comments = Comment.all.order(lh_comment_id: :desc).page(params[:page]).per(25)
   end
 
+  def show_comment
+    
+  end
+
   def by_section
     @comments = Comment.all
     get_report = Hash.new
