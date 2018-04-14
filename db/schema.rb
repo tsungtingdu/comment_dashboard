@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414022424) do
+ActiveRecord::Schema.define(version: 20180414023751) do
 
   create_table "comment_statuses", force: :cascade do |t|
     t.string "comment_status"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20180414022424) do
     t.string "comment_responsibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comment_status_id"
   end
 
 end
